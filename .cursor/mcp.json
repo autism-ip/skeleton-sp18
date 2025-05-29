@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+      "amap-amap-sse": {
+        "url": "https://mcp.amap.com/sse?key=6b1d777faa62bc98feb65fcbb7feb8b0"
+      }
+    },
+    "servers": [
+      {
+        "name": "Prompt Server",
+        "command": "node",
+        "args": [
+          "C:/Users/autism/Desktop/github repository/mcp-prompt-server/src/index.js"
+        ],
+        "transport": "stdio"
+      }
+    ]
+}
