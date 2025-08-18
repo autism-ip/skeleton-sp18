@@ -1,17 +1,23 @@
 public class ArrayDeque<T> {
-    private T[] items;
-    private int size;
+    private T[] items ;
+    private int size ;
+    private int next ;
+    private int prev ;
     public ArrayDeque() {
-        items = (T[]) new Object[8];
-        size = 0;
+        items = (T[]) new Object[8] ;
+        next = 0 ;
+        prev = 0 ;
+        size = 0 ;
     }
     public int size() {
-        return size;
+        return size ;
     }
-    public void resize(int capacity){
+    private void resize(int capacity){
         T[] a = (T[]) new Object[capacity];
         System.arrycopy(items,0,a,0,size);
-        items =a ;
+        items = a;
+        items[nextFirst] = items[capacity-1];
+        items[nextLast] = items[0];
     } 
     public void addFirst(T x){ 
         if(size == items.length){
@@ -19,6 +25,7 @@ public class ArrayDeque<T> {
         }
         System.arrycopy(items,0,items,1,size);
         items[0] = x;
+    
         size += 1;
     }
     public void addLast(T x){
