@@ -4,11 +4,10 @@ package synthesizer;
 
 import java.util.Iterator;
 
-import javax.management.RuntimeErrorException;
 
 //TODO: Make sure to make this class and all of its methods public
 //TODO: Make sure to make this class extend AbstractBoundedQueue<t>
-public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
+public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
     /* Index for the next dequeue or peek. */
     private int first;            // index for the next dequeue or peek
     /* Index for the next enqueue. */
@@ -45,7 +44,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
             throw new RuntimeException("Ring Buffer overflow");
         }
         rb[last] = x;
-        last = (last + 1)%capacity;
+        last = (last + 1) % capacity;
         fillCount += 1;
 
     }
@@ -58,11 +57,11 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
     @Override
     public T dequeue() {
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
-        if(isEmpty()){
+        if(isEmpty()) {
             throw new RuntimeException("Ring buffer underflow");
         }
         T dequeueValue = rb[first];
-        first = (first-1)%capacity;
+        first = (first-1) % capacity;
         fillCount -= 1;
         return dequeueValue;
     }
@@ -80,22 +79,22 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
     }
 
     @Override
-    public Iterator<T> iterator(){
+    public Iterator<T> iterator() {
         return new SetArrayRingBufferIterator();
     }
-    private class SetArrayRingBufferIterator implements Iterator<T>{
+    private class SetArrayRingBufferIterator implements Iterator<T> {
         int wizPos;
-        SetArrayRingBufferIterator(){
+        SetArrayRingBufferIterator() {
             wizPos = first;
         }
         @Override
-        public boolean hasNext(){
-            return wizPos<last;
+        public boolean hasNext() {
+            return wizPos < last;
         }
         @Override
-        public T next(){
+        public T next() {
                 T returnItem = rb[wizPos];
-                wizPos = (wizPos+1)%capacity;
+                wizPos = (wizPos + 1) % capacity;
                 return returnItem;
         } 
     }

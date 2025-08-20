@@ -6,10 +6,10 @@ public interface BoundedQueue<T> extends Iterable<T> {
     void enqueue(T x);
     T dequeue();
     T peek();
-    default boolean isEmpty(){
+    default boolean isEmpty() {
         return fillCount() == 0;
     };
-    default boolean isFull(){
+    default boolean isFull() {
         return fillCount() == capacity();
     };
     public Iterator<T> iterator();
