@@ -2,7 +2,7 @@
 //package <package name>;
 package synthesizer;
 
-import synthesizer.AbastractBoundedQueue;
+import synthesizer.AbstractBoundedQueue;
 import synthesizer.ArrayRingBuffer;
 
 //Make sure this class is public

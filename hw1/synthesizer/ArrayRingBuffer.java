@@ -29,7 +29,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
         last = 0;
         fillCount = 0;
         this.capacity = capacity;
-        rb = (T[]) new Obeject[this.capacity];
+        rb = (T[]) new Object[this.capacity];
 
     }
 
@@ -76,7 +76,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T>{
         if(isEmpty()){
             throw new RuntimeException();
         }
-        return rd[first];
+        return rb[first];
     }
 
     @Override
