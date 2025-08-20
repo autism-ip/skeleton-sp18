@@ -2,11 +2,9 @@
 //package <package name>;
 package synthesizer;
 
-import synthesizer.AbstractBoundedQueue;
-import synthesizer.ArrayRingBuffer;
 
 //Make sure this class is public
-public class GuitarString<T>{
+public class GuitarString<T> {
     /** Constants. Do not change. In case you're curious, the keyword final means
      * the values cannot be changed at runtime. We'll discuss this and other topics
      * in lecture on Friday. */
@@ -24,7 +22,7 @@ public class GuitarString<T>{
         //       Your buffer should be initially filled with zeros.
         int capacity = (int) Math.round(SR / frequency);
         buffer = new ArrayRingBuffer<>(capacity);
-        for(int i = 0;i < capacity; i++) {
+        for (int i = 0; i < capacity; i++) {
             buffer.enqueue(0.0);
         }
     }
@@ -37,10 +35,10 @@ public class GuitarString<T>{
         //       double r = Math.random() - 0.5;
         //
         //       Make sure that your random numbers are different from each other.
-        while( ! buffer.isEmpty()) {
+        while (!buffer.isEmpty()) {
             buffer.dequeue();
         }
-        while( ! buffer.isFull()) {
+        while (!buffer.isFull()) {
             buffer.enqueue(Math.random() - 0.5);
         }
     }
