@@ -1,13 +1,13 @@
 public class NBody {
     public static int N;
     public static double R;
-    public static double ReadRadius(String fileName) {
+    public static double readRadius(String fileName) {
         In in = new In(fileName);
         N = in.readInt();
         R = in.readDouble();
         return R;
     }
-    public static Planet[] ReadPlanets(String fileName) {
+    public static Planet[] readPlanets(String fileName) {
         In in = new In(fileName);
         in.readInt();
         in.readDouble();
@@ -23,8 +23,8 @@ public class NBody {
         double T = Double.valueOf(args[0]);
         double dt = Double.valueOf(args[1]);
         String fileName = args[2];
-        Planet[] planets = ReadPlanets(fileName);
-        R = ReadRadius(fileName);
+        Planet[] planets = readPlanets(fileName);
+        R = readRadius(fileName);
         StdDraw.setScale(-R,R);
         StdDraw.clear();
         double time = 0;
